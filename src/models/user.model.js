@@ -2,8 +2,9 @@ import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
+// create-data-model
 const userSchema = new Schema({
-    username: {
+    userName: {
         type: String,
         required: true,
         unique: truw,
@@ -18,7 +19,7 @@ const userSchema = new Schema({
         lowercase: true,
         trim: true,
     },
-    fullname: {
+    fullName: {
         type: String,
         required: true,
         trim: true,
@@ -45,7 +46,7 @@ const userSchema = new Schema({
 
 }, { timestamps: true })
 
-// 
+// password
 userSchema.pre("save", async function (next) {
     // check function as middleware-study it
     if (!this.isModified("password")) return next();
@@ -54,18 +55,18 @@ userSchema.pre("save", async function (next) {
     next()
 })
 
-//methods-apply
+//custom-methods-apply for password
 userSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password)
 }
 
-// 
+// methods-apply for login with jwt-token bearor
 userSchema.methods.generateAccessToken = function () {
     return jwt.sign({
         _id: this._id,
         email: this.email,
-        username: this.username,
-        fullname: this.fullname,
+        username: this.userName,
+        fullname: this.fullName,
 
     },
         process.env.ACCESS_TOKEN_SECRET,
@@ -74,7 +75,7 @@ userSchema.methods.generateAccessToken = function () {
         }
     )
 }
-
+// methods-for genrate the Token
 userSchema.methods.generateRefreshToken = function () {
     return jwt.sign(
         {

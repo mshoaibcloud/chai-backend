@@ -21,9 +21,9 @@ app.use(express.static("public"))
 //Cookies-ducuments-
 app.use(cookieParser())
 
-/**  2.middleware */
+/**  2.middleware-next */
 // before response we check-user is login , is admin
-// next
+
 
 
 
