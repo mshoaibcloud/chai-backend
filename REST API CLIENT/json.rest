@@ -1,0 +1,45 @@
+### GET-POSTS
+
+GET https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+Accept: application/json
+
+### GET-a-post from POSTS with id
+GET https://jsonplaceholder.typicode.com/posts/3
+Content-Type: application/json
+Accept: application/json
+
+### POST Record
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userId": 1,
+    "title": "Testing",
+    "body": "This is a testing body."
+}
+
+### UPDATE the Record
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userId": 1,
+    "title": "Testing-2",
+    "body": "This is a testing-2 body."
+}
+
+
+### POST Record
+POST https://localhost:8000/api/v1/users/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "userName": "shoaib",
+    "email": "h@hc.com",
+    "body": "This is a testing body."
+}
+
