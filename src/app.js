@@ -25,6 +25,21 @@ app.use(cookieParser())
 // before response we check-user is login , is admin
 
 
+//routes import
+import userRouter from './routers/user.routes.js'
+
+//routes declaration [app.get=>routes and controller-here]
+//but now we get from other side, we used app.use().
+
+// http://localhost:8000/users/user
+// http://localhost:8000/users/login
+// http://localhost:8000/users/api/v1/users/register
+
+
+app.use("/users",userRouter) //activate
+
+
+
 
 
 export {app}

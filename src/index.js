@@ -2,16 +2,16 @@
 // require('dotenv').config({path:'./env'});
 // console.log(process.env)
 
-
+import { app } from "./app.js";
 // 2-way-new fix it
 import dotenv from "dotenv";
-
 // second approach
 import connectDB from './db/conn.js';
 
 dotenv.config({
     path:'./.env'
 })
+
 
 
 connectDB()
