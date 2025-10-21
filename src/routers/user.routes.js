@@ -32,7 +32,7 @@ router.route("/login").post(loginUser)
 router.route("/logout").post(verifyJWT,logoutUser)
 
 //newRefreshToken-endpoint
-router.route("/refresh-token").post(refreshAccessToken)
+router.route("/refresh-token").post(refreshAccessToken) 
 
 
 export default router
