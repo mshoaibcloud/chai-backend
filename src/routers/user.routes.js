@@ -35,28 +35,28 @@ router.route("/login").post(loginUser)
 //logout : noted that you can add anotherMid if any
 router.route("/logout").post(verifyJWT,logoutUser)
 
-//newRefreshToken-endpoint
+//-endpoint-newRefreshToken
 router.route("/refresh-token").post(refreshAccessToken) 
 
-//-endpoint
+//-endpoint-change-password
 router.route("/change-password").post(verifyJWT,changeCurrentPassword)
 
-//-endpoint
+//-endpoint-current-user
 router.route("/current-user").get(verifyJWT,getCurrentUserProfile)
 
-//-endpoint
+//-endpoint-upate-account
 router.route("/update-account").patch(verifyJWT,updateAccountDetails)
 
-//-endpoint
+//-endpoint-avatar
 router.route("/avatar").patch(verifyJWT,upload.single("avatar"),updateUserAvatar)
 
-//-endpoint
-router.route("/cover-image").patch(verifyJWT,upload.single("/coverImage"),updateUserCoverImage)
+//-endpoint-cover-image
+router.route("/cover-image").patch(verifyJWT,upload.single("coverImage"),updateUserCoverImage)
 
-//-endpoint-from param
+//-endpoint-userChannelProfile - from param
 router.route("/c/:username").get(verifyJWT,getUserChannelProfile)
 
-//-endpoint
+//-endpoint-watch-history
 router.route("/history").get(verifyJWT,getWatchHistory)
 
 

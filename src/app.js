@@ -35,11 +35,9 @@ import userRouter from './routers/user.routes.js'
 // http://localhost:8000/users/login
 // http://localhost:8000/users/api/v1/users/register
 
-
+//routes decleation
+app.use("/api/v1/users",userRouter) //activate
 app.use("/users",userRouter) //activate
-
-
-
 
 
 export {app}
