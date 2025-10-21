@@ -1,18 +1,19 @@
 // {} -if not default
 import {Router} from "express";
 
-// jata huwa muj se milta jana
-import { registerUser } from "../controllers/user.contoller.js";
-
-// inject
+// jata huwa muj se milta jana-middleware
+import { loginUser, registerUser } from "../controllers/user.contoller.js";
+// injections
 import {upload} from "../middlewares/multer.middleware.js"
+import { verifyJWT } from "../middlewares/auth.middleware.js";
+
 
 const router = Router();
 //register all routes here
 // if simply register User-method
 router.route("/register").post(registerUser)
 
-// if we inject upload file into register User-method.
+// This is a middleware: if we inject upload file into register User-method.
 router.route("/register").post(upload.fields([
     {
         name: "avatar",
@@ -24,7 +25,11 @@ router.route("/register").post(upload.fields([
     }
 ]),registerUser)
 
+//login 
+router.route("/login").post(loginUser)
 
+//logout : noted that you can add anotherMid if any
+router.route("/logout").post(verifyJWT,logoutUser)
 
 
 
