@@ -2,7 +2,7 @@
 import {Router} from "express";
 
 // jata huwa muj se milta jana-middleware
-import { loginUser, registerUser } from "../controllers/user.contoller.js";
+import { loginUser,logoutUser, registerUser,refreshAccessToken } from "../controllers/user.contoller.js";
 // injections
 import {upload} from "../middlewares/multer.middleware.js"
 import { verifyJWT } from "../middlewares/auth.middleware.js";
@@ -31,7 +31,8 @@ router.route("/login").post(loginUser)
 //logout : noted that you can add anotherMid if any
 router.route("/logout").post(verifyJWT,logoutUser)
 
-
+//newRefreshToken-endpoint
+router.route("/refresh-token").post(refreshAccessToken)
 
 
 export default router

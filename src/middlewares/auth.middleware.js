@@ -1,8 +1,8 @@
-import { ApiError } from "../utils/ApiError";
-import {asyncHandler} from "../../utlis/asyncHandler";
+import { ApiError } from "../utils/ApiError.js";
+import {asyncHandler} from "../utlis/asyncHandler.js";
 
 import jwt from "jsonwebtoken"
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 
 
 // if res is not used ,then you can replace it with _
